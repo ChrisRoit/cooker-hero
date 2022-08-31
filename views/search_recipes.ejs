@@ -1,0 +1,36 @@
+<%- include("includes/header.ejs") %>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-body">
+                        <input id="ingredient" name="ingredient" type="text" class="form-control" />
+                        <select id="cuisineType" class="form-control">
+                            <option value="american">American</option>
+                            <option value="asian">Asian</option>
+                            <option value="british">British</option>
+                            <option value="caribbean">Caribbean</option>
+                            <option value="central europe">Central Europe</option>
+                            <option value="chinese">Chinese</option>
+                            <option value="eastern europe">Eastern Europe</option>
+                            <option value="french">French</option>
+                            <option value="indian">Indian</option>
+                            <option value="italian">Italian</option>
+                            <option value="japanese">Japanese</option>
+                            <option value="kosher">Kosher</option>
+                            <option value="mediterranean">Mediterranean</option>
+                            <option value="mexican">Mexican</option>
+                            <option value="middle eastern">Middle Eastern</option>
+                            <option value="nordic">Nordic</option>
+                            <option value="south american">South American</option>
+                            <option value="south east asian">South East Asian</option>
+
+                        </select>
+                        <button id="searchButton" class="btn btn-primary">Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="../public/js/search_recipes.js"></script>
+<%- include("includes/footer.ejs") %>

@@ -1,0 +1,58 @@
+<%- include("includes/header.ejs") %>
+        <% if(recipes["hits"].length > 0){ %>
+            <div class="container" style="margin-top:40px; margin-bottom:40px;">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h1 class="text-center"t><%= cuisineType %> recipes containing <%= mainIngredient %></h1>
+                    </div>
+                </div>
+            </div>
+        <%}%>
+        
+        <div class="container">
+            <% if(recipes["hits"].length == 0){ %>
+                <h3>No results found the the combination of main ingredient: <%= mainIngredient %>, country of origin: <%= cuisineType %></h3>
+            <%}else{%>
+                <% for(i=0;i<recipes["hits"].length;i++){ %>
+                    <div class="row">
+                        <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+                            <div class="card" style="margin-top:20px; margin-bottom:20px;">
+                                <div class="card-body">
+                                    <% try{ %>
+                                        <div class="row">
+                                            <div class="col-md-12 col-lg-6">
+                                                <h3><%= recipes["hits"][i]["recipe"]["label"] %></h3>
+                                                <p>Approximated calories for the dish: <%= Math.round(recipes["hits"][i]["recipe"]["calories"]) %></p>
+                                                <div>
+                                                    <p style="font-weight:bold;">Ingredients</p>
+                                                    <small><%= recipes["hits"][i]["recipe"]["ingredientLines"] %></small>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-12 col-lg-6">
+                                                <img style="border-radius:5px;" class="img-fluid" src="<%= recipes['hits'][i]['recipe']['image'] %>" />
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top:20px;">
+                                            <div class="col-md-12">
+                                                <a href="<%= recipes['hits'][i]['recipe']['shareAs'] %>" class="btn btn-primary">Recipe link</a>
+                                            </div>
+                                        </div>
+                                        
+                                        
+                                        <!--<h2><%= JSON.stringify(recipes["hits"][0]["recipe"]) %></h2>-->
+                                        
+                                    <%}catch(error){ %>
+                                        <% if(error.toString().toLowerCase().includes("recipe") && error.toString().toLowerCase().includes("typeerror")){%>
+                                            <h3>No recipes found for the cuisine type of <%= cuisineType %></h3>
+                                        <%}else{%>
+                                            <h3><%= error %> hahaha</h3>
+                                        <%}%>
+                                    <%}%>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <%}%>
+            <%}%>
+        </div>
+<%- include("includes/footer.ejs") %>
