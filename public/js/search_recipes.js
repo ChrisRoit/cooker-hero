@@ -8,8 +8,13 @@ function redirect() {
     if (country == null || country == "undefined" || ingredient == null || ingredient == "undefined") {
         return false;
     }
-    var formattedUrl = searchPathGenerator(ingredient, country);
-    location.href = formattedUrl;
+    else {
+        if (ingredient.length == 0 || country.length == 0) {
+            return false;
+        }
+        var formattedUrl = searchPathGenerator(ingredient, country);
+        location.href = formattedUrl;
+    }
 }
 var searchButton = document.getElementById("searchButton");
 searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEventListener("click", function (e) { return redirect(); });

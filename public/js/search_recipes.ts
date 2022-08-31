@@ -8,9 +8,14 @@ function redirect(){
     let country:string = (document.getElementById("cuisineType") as HTMLInputElement).value;
     if(country == null || country == "undefined" || ingredient == null || ingredient == "undefined"){
         return false;
+    }else{
+        if(ingredient.length == 0 || country.length == 0){
+            return false;
+        }
+        let formattedUrl:string = searchPathGenerator(ingredient,country);
+        location.href = formattedUrl;
     }
-    let formattedUrl:string = searchPathGenerator(ingredient,country);
-    location.href = formattedUrl;
+    
 }
 
 const searchButton = document.getElementById("searchButton");
