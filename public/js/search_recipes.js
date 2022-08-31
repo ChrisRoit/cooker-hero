@@ -17,4 +17,11 @@ function redirect() {
     }
 }
 var searchButton = document.getElementById("searchButton");
+var ingredientInput = document.getElementById("ingredient");
 searchButton === null || searchButton === void 0 ? void 0 : searchButton.addEventListener("click", function (e) { return redirect(); });
+ingredientInput === null || ingredientInput === void 0 ? void 0 : ingredientInput.addEventListener("keypress", function (e) {
+    console.log(e.key);
+    if (e.key === "Enter") {
+        redirect();
+    }
+});
