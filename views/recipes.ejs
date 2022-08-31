@@ -15,21 +15,23 @@
             <%}else{%>
                 <% for(i=0;i<recipes["hits"].length;i++){ %>
                     <div class="row">
-                        <div class="col-md-10 offset-md-1 col-lg-6 offset-lg-3">
+                        <div class="col-md-10 offset-md-1 col-lg-8 offset-lg-2">
                             <div class="card" style="margin-top:20px; margin-bottom:20px;">
                                 <div class="card-body">
                                     <% try{ %>
                                         <div class="row">
                                             <div class="col-md-12 col-lg-6">
                                                 <h3><%= recipes["hits"][i]["recipe"]["label"] %></h3>
-                                                <p>Approximated calories for the dish: <%= Math.round(recipes["hits"][i]["recipe"]["calories"]) %></p>
+                                                <p>Approximated calories for the dish: <%= Math.round(recipes["hits"][i]["recipe"]["calories"]) %> kcal</p>
                                                 <div>
                                                     <p style="font-weight:bold;">Ingredients</p>
                                                     <small><%= recipes["hits"][i]["recipe"]["ingredientLines"] %></small>
                                                 </div>
                                             </div>
                                             <div class="col-md-12 col-lg-6">
-                                                <img style="border-radius:5px;" class="img-fluid" src="<%= recipes['hits'][i]['recipe']['image'] %>" />
+                                                <a href="<%= recipes['hits'][i]['recipe']['shareAs'] %>">
+                                                    <img style="border-radius:5px;" class="img-fluid" src="<%= recipes['hits'][i]['recipe']['image'] %>" />
+                                                </a>
                                             </div>
                                         </div>
                                         <div class="row" style="margin-top:20px;">

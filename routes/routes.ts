@@ -28,7 +28,7 @@ router.get("/recipes/:query/:cuisineType",(req,res) => {
 
 router.use("*",(req,res) => {
     res.render("404.ejs",{root:__dirname});
-})
+});
 
 
 module.exports = router;
